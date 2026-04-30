@@ -1,0 +1,27 @@
+.grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border: 1px dashed #eee;
+    padding: .5rem;
+}
+
+.meta {
+    text-align: right;
+}
+
+.ok {
+    color: green;
+}
+
+.ko {
+    color: red;
+}

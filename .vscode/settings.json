@@ -1,0 +1,7 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "Out-File": true,
+        "git add": true,
+        "git reset": true
+    }
+}

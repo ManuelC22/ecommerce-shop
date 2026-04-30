@@ -1,0 +1,23 @@
+<h2>Catálogo</h2>
+
+<app-product-filter (searched)="onSearched($event)" />
+
+<ul class="grid">
+    @for (p of filtered(); track p.id) {
+    <li class="row">
+        <app-product-card [product]="p" />
+        <div class="meta">
+            <p class="price">{{ p.price | currency:'USD':'symbol':'1.0-0' }}</p>
+            <p class="stock">
+                @if (p.stock > 0) {
+                <span class="ok">Disponible ({{ p.stock }})</span>
+                } @else {
+                <span class="ko">Agotado</span>
+                }
+            </p>
+        </div>
+    </li>
+    } @empty {
+    <li>No hay productos.</li>
+    }
+</ul>

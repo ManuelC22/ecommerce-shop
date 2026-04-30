@@ -1,0 +1,11 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.card button {
+    margin-top: .5rem;
+    padding: .3rem .6rem;
+    cursor: pointer;
+}
