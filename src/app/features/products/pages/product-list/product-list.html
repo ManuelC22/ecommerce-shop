@@ -1,0 +1,26 @@
+<h2>Catálogo</h2>
+
+<div class="filters">
+    <input type="text" placeholder="Buscar..." [ngModel]="q()" (ngModelChange)="q.set($event)" />
+    <button type="button" (click)="toggle()">
+        @if (onlyAvailable()) { Mostrar todos } @else { Solo disponibles }
+    </button>
+</div>
+
+<p class="empty">No hay productos.</p>
+
+<ul class="grid">
+    @for (p of filtered(); track p) {
+    <li class="card">
+        <h3>{{ p.nombre }}</h3>
+        <p class="price">Precio: {{ p.price }}</p>
+        <p class="stock">
+            @if (p.stock >= 0) {
+            <span class="ok">Disponible</span>
+            } @else {
+            <span class="ko">Agotado</span>
+            }
+        </p>
+    </li>
+    }
+</ul>
