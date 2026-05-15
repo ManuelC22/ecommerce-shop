@@ -1,0 +1,24 @@
+<h2>Catálogo</h2>
+
+<div class="filters">
+    <button type="button" (click)="toggleAvailable()">
+        @if (onlyAvailable()) { Mostrar todos } @else { Solo disponibles }
+    </button>
+</div>
+
+<ul class="grid">
+    @for (p of products(); track p.id) {
+    <li class="row">
+        <a [routerLink]="['/products', p.id]">
+            <h3>{{ p.name }}</h3>
+        </a>
+        <p class="price">{{ p.price | currency:'USD':'symbol':'1.0-0' }}</p>
+        <p class="stock">
+            @if (p.stock > 0) { Disponible ({{ p.stock }}) } @else { Agotado }
+        </p>
+        <button type="button" (click)="addStock(p)">+ stock</button>
+    </li>
+    } @empty {
+    <li>No hay productos.</li>
+    }
+</ul>
