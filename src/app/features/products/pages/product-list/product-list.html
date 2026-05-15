@@ -1,0 +1,17 @@
+<div class="header">
+    <h2>Catálogo</h2>
+    <a class="btn-new" routerLink="/products/new">+ Nuevo producto</a>
+</div>
+
+<ul class="grid">
+    @for (p of products(); track p.id) {
+    <li class="row">
+        <h3>{{ p.name }}</h3>
+        <p class="price">{{ p.price | currency:'USD':'symbol':'1.0-0' }}</p>
+        <p class="stock">Stock: {{ p.stock }} (próximo: {{ p.stock + 1 }})</p>
+        <a [routerLink]="['/products', p.id, 'edit']">Editar</a>
+    </li>
+    } @empty {
+    <li>No hay productos.</li>
+    }
+</ul>

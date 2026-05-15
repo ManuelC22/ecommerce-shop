@@ -1,0 +1,47 @@
+<a routerLink="/products">← Volver al catálogo</a>
+
+<h2>{{ editingId ? 'Editar producto' : 'Nuevo producto' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()" class="form">
+    <label>
+        Nombre
+        <input type="text" formControlName="name" />
+        @if (form.controls.name.errors?.['required']) {
+        <small class="err">El nombre es obligatorio</small>
+        }
+        @if (form.controls.name.errors?.['minlength']) {
+        <small class="err">Mínimo 3 caracteres</small>
+        }
+    </label>
+
+    <label>
+        Precio
+        <input type="number" formControlName="price" />
+        @if (form.controls.price.errors?.['required']) {
+        <small class="err">El precio es obligatorio</small>
+        }
+    </label>
+
+    <label>
+        Stock
+        <input type="number" formControlName="stock" />
+        @if (form.controls.stock.errors?.['required']) {
+        <small class="err">El stock es obligatorio</small>
+        }
+    </label>
+
+    <label>
+        Categoría
+        <input type="text" formControlName="category" />
+        @if (form.controls.category.errors?.['required']) {
+        <small class="err">La categoría es obligatoria</small>
+        }
+    </label>
+
+    <label>
+        Descripción
+        <textarea formControlName="description" rows="3"></textarea>
+    </label>
+
+    <button type="submit">Guardar</button>
+</form>
