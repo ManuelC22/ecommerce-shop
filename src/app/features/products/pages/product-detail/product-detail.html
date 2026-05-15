@@ -1,0 +1,15 @@
+<a routerLink="/products">← Volver al catálogo</a>
+
+@if (loading()) {
+<p>Cargando producto...</p>
+} @else if (error()) {
+<p class="error">{{ error() }}</p>
+} @else if (product(); as p) {
+<article class="detail">
+    <h2>{{ p.name }}</h2>
+    <p class="category">Categoría: {{ p.category }}</p>
+    <p class="price">{{ p.price | currency:'USD':'symbol':'1.0-0' }}</p>
+    <p class="stock">Stock disponible: {{ p.stock }}</p>
+    <p class="description">{{ p.description }}</p>
+</article>
+}

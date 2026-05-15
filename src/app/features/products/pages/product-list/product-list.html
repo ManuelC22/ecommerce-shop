@@ -1,0 +1,21 @@
+<h2>Catálogo</h2>
+
+@if (loading()) {
+<p>Cargando...</p>
+} @else {
+<p class="featured">Producto destacado: {{ featuredName() }}</p>
+
+<ul class="grid">
+    @for (p of products(); track p.id) {
+    <li class="row">
+        <a [routerLink]="['/products', p.id]">
+            <h3>{{ p.name }}</h3>
+        </a>
+        <p class="price">{{ p.price | currency:'USD':'symbol':'1.0-0' }}</p>
+        <p class="stock">Stock: {{ p.stock }}</p>
+    </li>
+    } @empty {
+    <li>No hay productos.</li>
+    }
+</ul>
+}
