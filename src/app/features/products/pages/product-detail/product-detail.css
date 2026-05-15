@@ -1,0 +1,32 @@
+.detail {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    max-width: 600px;
+}
+
+.category {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a73e8;
+}
+
+.stock {
+    color: #444;
+}
+
+.description {
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+a {
+    color: #1a73e8;
+    text-decoration: none;
+}

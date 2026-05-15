@@ -1,0 +1,52 @@
+import { Injectable, signal } from '@angular/core';
+import { Product } from '../models/product.model';
+
+@Injectable({ providedIn: 'root' })
+export class ProductsService {
+    products = signal<Product[]>([
+        {
+            id: 1,
+            name: 'Teclado Mecánico',
+            price: 149990,
+            stock: 5,
+            category: 'periféricos',
+            description: 'Teclado mecánico retroiluminado con switches azules.'
+        },
+        {
+            id: 2,
+            name: 'Mouse Inalámbrico',
+            price: 39990,
+            stock: 12,
+            category: 'periféricos',
+            description: 'Mouse ergonómico de 1600 DPI con conexión 2.4 GHz.'
+        },
+        {
+            id: 3,
+            name: 'Monitor 27"',
+            price: 599990,
+            stock: 0,
+            category: 'pantallas',
+            description: 'Monitor IPS 27 pulgadas, 144Hz, resolución QHD.'
+        },
+        {
+            id: 4,
+            name: 'Auriculares Bluetooth',
+            price: 89990,
+            stock: 3,
+            category: 'audio',
+            description: 'Auriculares con cancelación de ruido activa.'
+        },
+        {
+            id: 5,
+            name: 'Webcam HD',
+            price: 79990,
+            stock: 7,
+            category: 'video',
+            description: 'Webcam 1080p con micrófono incorporado.'
+        }
+    ]);
+
+    findById(id: number): Product | undefined {
+        return this.products().find(p => p.id === id);
+    }
+}
